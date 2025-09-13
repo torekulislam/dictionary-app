@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Rancho&family=Slabo+27px&display=swap');
+
+
+
+* {
+    font-family: "Slabo 27px", serif;
+    transition: background-color 1s ease-in-out, color 1s ease-in-out;
+
+}
