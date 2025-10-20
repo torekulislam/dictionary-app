@@ -27,7 +27,7 @@ function MainSection() {
   return (
     <div className="w-full min-h-[48vh] md:min-h-[38vh] py-10 p-3">
       <AnimatePresence mode="wait">
-        {/* ✅ Word Data Available */}
+        {/*  Word Data Available */}
         {data && Object.keys(data).length > 0 ? (
           <motion.div key={data.word} {...fadeUp} className="grid gap-9">
             {/* Word + Audio */}
@@ -93,7 +93,7 @@ function MainSection() {
             </h3>
             <p className="text-2xl text-gray-700 dark:text-gray-300">
               {result?.message ||
-                "👋 Welcome! Start by searching any word above."}
+                " Welcome! Start by searching any word above."}
             </p>
           </motion.div>
         )}

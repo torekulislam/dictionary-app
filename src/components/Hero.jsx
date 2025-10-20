@@ -13,31 +13,39 @@ function Hero() {
   const dispatch = useDispatch();
 
   // ========================
-  // 🔍 Search State
+  //  Search State
   // ========================
   const [word, setWord] = useState("");
 
   // Fetch word data from Dictionary API
-  const fetchWord = async (word) => {
-    if (!word) {
+  const fetchWord = async (words) => {
+    if (!words) {
       dispatch(updateData(undefined));
       console.log("⚠️ Enter a word before searching");
       return;
     }
 
     try {
+      // const response = await fetch(
+      //   `https://api.dictionaryapi.dev/api/v2/entries/en/${words}`
+      // );
       const response = await fetch(
-        `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
+        `https://api.allorigins.win/raw?url=${encodeURIComponent(
+          `https://api.dictionaryapi.dev/api/v2/entries/en/${words}`
+        )}`
       );
+
       const result = await response.json();
+      console.log(result);
+
       dispatch(updateData(result));
     } catch (error) {
-      console.error("❌ Error fetching word:", error);
+      console.error(" Error fetching word:", error);
     }
   };
 
   // ========================
-  // 🌗 Theme Handling
+  //  Theme Handling
   // ========================
   const mod = useSelector((state) => state.data.mod);
   const [isDark, setIsDark] = useState(false);
@@ -75,7 +83,7 @@ function Hero() {
   };
 
   // ========================
-  // 🖼️ UI
+  //  UI
   // ========================
   return (
     <div className="min-h-[44vh] md:min-h-[54vh] px-3 w-full shadow dark:bg-[#393E46] bg-[#1C352D]">
